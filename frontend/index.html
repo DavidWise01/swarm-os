@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Swarm OS</title>
+<style>body{margin:0;background:#0a0e0f;color:#c4f5d4;font-family:ui-monospace} 
+.top{padding:10px 20px;border-bottom:1px solid #222;display:flex;justify-content:space-between}
+.main{display:grid;grid-template-columns:280px 1fr 280px;height:calc(100vh - 45px)}
+.panel{border-right:1px solid #222;padding:15px;overflow:auto}
+.msg{margin:10px 0;padding:10px;background:#141a1c;border-radius:6px}
+.msg.u{background:#1e2a33;margin-left:30px}
+input{width:100%;padding:10px;background:#111;border:1px solid #333;color:#c4f5d4}
+.lattice{display:grid;grid-template-columns:repeat(10,22px);gap:2px}
+.cell{width:22px;height:22px;background:#1a1f22}
+.cell.on{background:#4d80ff}
+</style></head><body>
+<div class="top"><div>SWARM OS • 100 agents</div><div>
+<button onclick="mode='recall'">RECALL</button>
+<button onclick="mode='create'">CREATE</button>
+<button onclick="mode='socratic'">SOCRATIC</button>
+</div></div>
+<div class="main">
+<div class="panel"><h4>Knowledge</h4><div id="kb"></div></div>
+<div class="panel" style="display:flex;flex-direction:column">
+<div id="chat" style="flex:1;overflow:auto"></div>
+<input id="in" placeholder="Ask or teach..." onkeydown="if(event.key==='Enter')go()">
+</div>
+<div class="panel"><h4>Lattice</h4><div class="lattice" id="lat"></div></div>
+</div>
+<script>
+let mode='recall';
+const lat=document.getElementById('lat');
+for(let i=0;i<100;i++){const d=document.createElement('div');d.className='cell';d.id='c'+i;lat.appendChild(d);}
+async function go(){
+ const t=in.value; in.value=''; add(t,'u'); flash();
+ const r=await fetch('http://localhost:8000/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:t,mode})}).then(r=>r.json()).catch(()=>({answer:'Backend offline - run python backend/main.py'}));
+ add(r.answer+` <small>${r.votes||''}</small>`,'');
+}
+function add(t,c){const d=document.createElement('div');d.className='msg '+c;d.innerHTML=t;chat.appendChild(d);chat.scrollTop=1e9}
+function flash(){document.querySelectorAll('.cell').forEach(c=>c.classList.remove('on'));for(let i=0;i<15;i++)setTimeout(()=>document.getElementById('c'+Math.floor(Math.random()*100)).classList.add('on'),i*40)}
+add('Swarm online. Mode: RECALL (answers from memory), CREATE (new ideas), SOCRATIC (I ask you). Teach: /learn s p o','');
+</script></body></html>
