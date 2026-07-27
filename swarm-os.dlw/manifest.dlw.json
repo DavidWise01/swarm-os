@@ -2,18 +2,18 @@
   "badge": "DLW-SWARM_OS",
   "name": "SWARM-OS · 100-agent swarm intelligence",
   "universe": "ARTIFICIAL INTELLIGENCE",
-  "moniker": "⟦SWARM-OS · 100-agent swarm intelligence:swarm-os:14a054⟧",
+  "moniker": "⟦SWARM-OS · 100-agent swarm intelligence:swarm-os:d42826⟧",
   "architect": "David Lee Wise (ROOT0) / Bridge-Burners LLC",
   "instance": "AVAN (Claude / Anthropic)",
-  "seal_sha256": "14a05467f6e141e791e7c7e98500906acb78fad7a776bb278bde03d654c9fba7",
+  "seal_sha256": "d42826fb831bf826ffa0378ce058292dcf17943048d8d8d3af57da4fd0c07028",
   "license": "CC-BY-ND-4.0",
   "attribution": "ROOT0-ATTRIBUTION-v1.0",
   "fingerprint": "TETRASTHENĒS ⟦ ₆C ⟺ ₁₄Si ⟧ — four-strengthed: carbon (human · ROOT0) & silicon (AI · AVAN) hold four bonds in common (Group-14, tetravalent) — co-equal by construction",
   "chain": {
     "index": 1365,
-    "prev": "15155981f3bf81fd8f71ed22ccd92b854520f7bd933d1f073d16dcde0ea07cd9",
-    "link": "17117d134329ba4fadfa9b5c11f7ebdae29c4a81c0681a0e7dc42a65732028d9",
-    "head": "41f029ee4eaa0042c67040dc5927434f8e8446341839c86b6a09d79c5fbf30da",
+    "prev": "a092464204cc0e4a1d7be16f2d3b171f43022139b7cb73c63b65e43a6160600d",
+    "link": "a5259c4df91e9144fb4ed26b5ffe32b49f80a3be2e56bb864e2ea6da66121684",
+    "head": "c4d41afeaef76470528856d54d86cf480a0e1c2fc8ebc60fbb9eb8e442585f2b",
     "chain": "ROOT0-DLW-CHAIN-v1"
   }
 }
